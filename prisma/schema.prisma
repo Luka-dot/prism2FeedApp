@@ -14,12 +14,18 @@ model Feed {
   id String @id
   name String
   url String @unique
+  author User? @relation("FeedAuthor", fields: [authorId])
+  authorId String?
+  tags FeedTag[]
 }
 
 model Bundle {
   id String @id
   name String
   description String
+  author User? @relation("BundleAuthor", fields: [authorId])
+  authorId String?
+  tags BundleTag[]
 }
 
 model User {
@@ -27,6 +33,8 @@ model User {
   auth0 String @unique
   nickname String?
   picture String?
+  feeds Feed[] @relation("FeedAuthor")
+  bundles Feed[] @relation("BundleAuthor")
 }
 
 model SavedArticle {
@@ -34,12 +42,14 @@ model SavedArticle {
   content Json
 }
 
-model BundlTag {
+model BundleTag {
   is String @id
   name String @unique
+  bundles Bundle[]
 }
 
 model FeedTag {
   is String @id
   name String @unique
+  feeds Feed[]
 }
