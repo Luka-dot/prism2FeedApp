@@ -1,0 +1,10 @@
+npm install --save next react react-dom
+npm install --save-dev @types/node @types/react typescript
+->  npm run dev   creates tsconfig.json
+
+***** Prisma install *****
+npm install --save @prisma/client
+npm install --save-dev @prisma/cli
+then in package.json add 2 scripts   "prisma:init": "prisma init", "prisma:migrate": "prisma migrate dev --preview-feature"
+npm run prisma:init     created schema prisma file and .env for database url
+

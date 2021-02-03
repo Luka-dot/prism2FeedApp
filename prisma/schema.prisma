@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Feed {
+  id String @id
+  name String
+  url String @unique
+}
+
+model Bundle {
+  id String @id
+  name String
+  description String
+}
+
+model User {
+  id String @id
+  auth0 String @unique
+  nickname String?
+  picture String?
+}
+
+model SavedArticle {
+  id String @id
+  content Json
+}
+
+model BundlTag {
+  is String @id
+  name String @unique
+}
+
+model FeedTag {
+  is String @id
+  name String @unique
+}
