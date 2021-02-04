@@ -8,3 +8,4 @@ npm install --save-dev @prisma/cli
 then in package.json add 2 scripts   "prisma:init": "prisma init", "prisma:migrate": "prisma migrate dev --preview-feature"
 npm run prisma:init     created schema prisma file and .env for database url
 
+npm install --save dotenv @apollo/client graphql @auth0/nextjs-auth0
